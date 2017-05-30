@@ -1,0 +1,36 @@
+<?php
+
+use yii\helpers\Html;
+use yii\grid\GridView;
+
+/* @var $this yii\web\View */
+/* @var $searchModel backend\models\search\FrontendOrderCustomSearch */
+/* @var $dataProvider yii\data\ActiveDataProvider */
+
+$this->title = '订单特制';
+$this->params['breadcrumbs'][] = $this->title;
+?>
+<div class="frontend-ad-index">
+
+    <h1><?= Html::encode($this->title) ?></h1>
+    <p>
+        <?= Html::a('新增', ['create'], ['class' => 'btn btn-success']) ?>
+    </p>
+    <?= GridView::widget([
+        'dataProvider' => $dataProvider,
+        'filterModel' => $searchModel,
+        'columns' => [
+            ['class' => 'yii\grid\SerialColumn'],
+
+            'userid',
+            'desc',
+            'imgs',
+            'cellphone',
+            'created_at' ,
+            'updated_at' ,
+
+            ['class' => 'yii\grid\ActionColumn'],
+
+        ],
+    ]); ?>
+</div>
